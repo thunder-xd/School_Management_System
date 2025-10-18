@@ -1,0 +1,40 @@
+/* Student Dashboard Styling */
+
+.root {
+    -fx-background: linear-gradient(#2c5364, #203a43);
+    -fx-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-text-fill: #f5f5f7;
+}
+
+.vbox {
+    -fx-padding: 20px 25px;
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 9, 0, 0, 3);
+    -fx-spacing: 20px;
+    -fx-max-width: 850px;
+}
+
+.label {
+    -fx-text-fill: #dae4f0;
+    -fx-font-size: 21pt;
+    -fx-font-weight: 700;
+    -fx-padding: 2 0 8 0;
+}
+
+.button {
+    -fx-background-color: linear-gradient(to right, #456d8b, #253f52);
+    -fx-text-fill: #dde9f2;
+    -fx-font-weight: 600;
+    -fx-font-size: 14pt;
+    -fx-padding: 11 30 11 30;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(20,20,40,0.8), 8, 0.5, 0, 2);
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #5790b2, #385d79);
+    -fx-effect: dropshadow(gaussian, rgba(41,59,94,0.9), 10, 0.5, 0, 3);
+}

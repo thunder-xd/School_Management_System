@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      stylesheets="@../StylingFiles/guest-style.css"
+      fx:controller="ControllerFiles.GuestController" alignment="CENTER" spacing="10" style="-fx-padding: 20;">
+    <Label text="Welcome, Guest! Limited access." style="-fx-font-size: 14pt;"/>
+    <Button text="View Admission Info" onAction="#onViewAdmissionInfo"/>
+    <Button text="Logout" onAction="#onLogout"/>
+</VBox>

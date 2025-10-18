@@ -1,0 +1,20 @@
+/* guest-style.css */
+.root {
+    -fx-background-color: #17191f;
+}
+
+.label {
+    -fx-text-fill: #cfd8dc;
+    -fx-font-size: 14pt;
+}
+
+.button {
+    -fx-background-color: linear-gradient(to bottom, #4b6cb7, #182848);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14pt;
+    -fx-padding: 12 28 12 28;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.7, 0, 2);
+}

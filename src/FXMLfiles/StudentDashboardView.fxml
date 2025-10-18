@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerFiles.StudentDashboardController">
+    <top>
+        <VBox alignment="CENTER" spacing="5.0" style="-fx-padding: 10; -fx-background-color: #3f51b5;"
+              stylesheets="@../StylingFiles/admin-dashboard-style.css"
+              BorderPane.alignment="CENTER">
+            <Label text="Welcome, Student Name!" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Label>
+            <Button onAction="#handleLogout" text="Logout" style="-fx-background-color: #ff9800; -fx-text-fill: white;" />
+        </VBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Marks">
+                    <content>
+                        <VBox spacing="10.0" style="-fx-padding: 20;">
+                            <Label text="Your Latest Marks">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                            <TableView prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                    <TableColumn prefWidth="150.0" text="Subject" />
+                                    <TableColumn prefWidth="100.0" text="Exam Type" />
+                                    <TableColumn prefWidth="100.0" text="Marks" />
+                                    <TableColumn prefWidth="150.0" text="Grade" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </content>
+                </Tab>
+
+                <Tab text="Attendance">
+                    <content>
+                        <VBox spacing="10.0" style="-fx-padding: 20;">
+                            <Label text="Your Attendance Record">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                            <TableView prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                    <TableColumn prefWidth="150.0" text="Date" />
+                                    <TableColumn prefWidth="100.0" text="Status" />
+                                    <TableColumn prefWidth="100.0" text="Reason (if Absent)" />
+                                </columns>
+                            </TableView>
+                            <Label text="Overall Percentage: 85%" style="-fx-font-weight: bold;" />
+                        </VBox>
+                    </content>
+                </Tab>
+
+                <Tab text="Attendance Predictor">
+                    <content>
+                        <VBox alignment="TOP_CENTER" spacing="20.0" style="-fx-padding: 50;">
+                            <Label text="Future Attendance Prediction (Algorithm Output)">
+                                <font>
+                                    <Font name="System Bold" size="16.0" />
+                                </font>
+                            </Label>
+                            <Label text="Based on current trends, your projected end-of-year attendance is 87%." style="-fx-text-fill: #00796b;" />
+                            <Label text="Recommendation: Maintain current attendance to stay above the 75% threshold." wrapText="true" />
+                        </VBox>
+                    </content>
+                </Tab>
+
+                <Tab text="Class Feedback">
+                    <content>
+                        <VBox spacing="15.0" style="-fx-padding: 20;">
+                            <Label text="Submit Feedback on a Class">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                            <Label text="Select Subject:" />
+                            <ComboBox prefWidth="200.0" promptText="Choose Subject" />
+                            <Label text="Rating (1-5):" />
+                            <Slider max="5.0" min="1.0" majorTickUnit="1.0" showTickLabels="true" snapToTicks="true" />
+                            <Label text="Comments:" />
+                            <TextArea prefHeight="100.0" promptText="Enter detailed feedback here..." />
+                            <Button text="Submit Feedback" style="-fx-background-color: #00bcd4; -fx-text-fill: white;" />
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+    <padding>
+        <Insets />
+    </padding>
+</BorderPane>
