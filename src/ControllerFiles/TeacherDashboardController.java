@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import java.io.IOException;
 
 import Application.*;
+import Database.*;
 
 public class TeacherDashboardController {
 
@@ -14,6 +15,8 @@ public class TeacherDashboardController {
     @FXML private Label subjectLabel;
     @FXML private Label scoreLabel;
     @FXML private TextArea feedbackArea;
+
+
 
     @FXML
     private void onViewProfile(String name, String contact, String subject, double score, String feedback) {
@@ -77,7 +80,7 @@ public class TeacherDashboardController {
 
     @FXML
     private void onUpdateAttendance() {
-        //Getter to get the current lable
+        //Getter to get the current label
         double attendance = 0.0;
         currentAttendanceLabel.setText("Current Attendance: " + attendance);
         //Set selected attendance (getSelectedAttendance())

@@ -21,11 +21,11 @@
             <VBox spacing="10" style="-fx-padding: 10;">
                 <Label text="Update Student Information" style="-fx-font-size: 18px;"/>
 
+                <Label text="Registration Number:"/>
+                <TextField fx:id="regNo" promptText="Enter Name" prefWidth="300"/>
+
                 <Label text="Name:"/>
                 <TextField fx:id="nameField" promptText="Enter Name" prefWidth="300"/>
-
-                <Label text="Marks:"/>
-                <TextField fx:id="marksField" promptText="Enter Marks" prefWidth="300"/>
 
                 <Label text="Attendance:"/>
                 <TextField fx:id="attendanceField" promptText="Enter Attendance %" prefWidth="300"/>
@@ -33,15 +33,26 @@
                 <Label text="Phone Number:"/>
                 <TextField fx:id="phoneField" promptText="Enter Phone Number" prefWidth="300"/>
 
+                <Label text="Address:"/>
+                <TextField fx:id="address" promptText="Enter Phone Number" prefWidth="300"/>
+
+                <Label text="Age:"/>
+                <TextField fx:id="age" promptText="Enter Phone Number" prefWidth="300"/>
+
+
                 <Button fx:id="saveButtonStudent" text="Save" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" onAction="#onUpdateStudentDetails"/>
             </VBox>
         </Tab>
+
 
 
         <Tab text="Teachers">
             <VBox spacing="10" style="-fx-padding: 10;">
 
                 <Label text="Update Teacher Information" style="-fx-font-size: 18px;"/>
+
+                <Label text="Teacher Id:"/>
+                <TextField fx:id="teachId" promptText="Enter Name" prefWidth="300"/>
 
                 <Label text="Name:"/>
                 <TextField fx:id="nameFieldTeach" promptText="Enter Name" prefWidth="300"/>
@@ -58,7 +69,7 @@
                 <Label text="Feedback:"/>
                 <TextArea fx:id="feedbackArea" promptText="Enter Feedback" prefWidth="300" prefHeight="100"/>
 
-                <Button fx:id="saveButtonTeacher" text="Save" style="-fx-background-color: #4A90E2; -fx-text-fill: white;"/>
+                <Button fx:id="saveButtonTeacher" text="Save" style="-fx-background-color: #4A90E2; -fx-text-fill: white;" onAction="#onUpdateTeacherDetails"/>
             </VBox>
         </Tab>
 
