@@ -8,12 +8,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ToggleGroup?>
-
 
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+
+
 <VBox xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1"
       stylesheets="@../StylingFiles/teacher-dashboard-style.css"
       fx:controller="ControllerFiles.TeacherDashboardController" spacing="10" style="-fx-padding: 10;">
@@ -33,7 +32,6 @@
                 <TextArea fx:id="feedbackArea" editable="false" wrapText="true" prefHeight="90" style="-fx-font-size: 14px;"/>
             </VBox>
         </Tab>
-
 
         <Tab text="Marks">
             <VBox spacing="10" style="-fx-padding: 10;">
@@ -66,18 +64,41 @@
 
 
         <Tab text="Attendance">
-            <VBox spacing="10" style="-fx-padding: 10;">
-                    <Label text="Attendance Update" style="-fx-font-size: 20px;"/>
-                    <Label fx:id="currentAttendanceLabel" style="-fx-font-size: 16px;"/>
+            <VBox spacing="15" style="-fx-padding: 15;">
+                <Label text="Attendance Update" style="-fx-font-size: 20px;"/>
 
-                    <ToggleGroup fx:id="attendanceGroup" />
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Student ID:" style="-fx-font-size: 16px;"/>
+                    <TextField fx:id="studentIdField" promptText="Enter Student ID" />
+                </HBox>
 
-                    <HBox spacing="14" alignment="CENTER">
-                        <RadioButton fx:id="presentRadio" text="Present" toggleGroup="attendanceGroup" />
-                        <RadioButton fx:id="absentRadio" text="Absent" toggleGroup="attendanceGroup" />
+                <Label fx:id="currentAttendanceLabel" style="-fx-font-size: 16px;"/>
+
+                <VBox spacing="5">
+                    <Label text="Subject 1" style="-fx-font-weight: bold;"/>
+                    <HBox spacing="14" alignment="CENTER_LEFT">
+                        <Button fx:id="subject1PresentButton" text="Present" onAction="#onSubject1Selected" styleClass="attendance-button"/>
+                        <Button fx:id="subject1AbsentButton" text="Absent" onAction="#onSubject1Selected" styleClass="attendance-button"/>
                     </HBox>
+                </VBox>
 
-                    <Button fx:id="commitButton" text="Commit Attendance" style="-fx-background-color: #58b368; -fx-text-fill: white;" onAction="#onUpdateAttendance"/>
+                <VBox spacing="5">
+                    <Label text="Subject 2" style="-fx-font-weight: bold;"/>
+                    <HBox spacing="14" alignment="CENTER_LEFT">
+                        <Button fx:id="subject2PresentButton" text="Present" onAction="#onSubject2Selected" styleClass="attendance-button"/>
+                        <Button fx:id="subject2AbsentButton" text="Absent" onAction="#onSubject2Selected" styleClass="attendance-button"/>
+                    </HBox>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Subject 3" style="-fx-font-weight: bold;"/>
+                    <HBox spacing="14" alignment="CENTER_LEFT">
+                        <Button fx:id="subject3PresentButton" text="Present" onAction="#onSubject3Selected" styleClass="attendance-button"/>
+                        <Button fx:id="subject3AbsentButton" text="Absent" onAction="#onSubject3Selected" styleClass="attendance-button"/>
+                    </HBox>
+                </VBox>
+
+                <Button fx:id="commitButton" text="Commit Attendance" style="-fx-background-color: #58b368; -fx-text-fill: white;" onAction="#onUpdateAttendance"/>
             </VBox>
         </Tab>
 

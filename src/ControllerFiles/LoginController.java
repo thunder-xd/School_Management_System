@@ -36,13 +36,13 @@ public class LoginController {
         boolean authenticated = controlLogin.checkUserPassword(getId(), getPasswd(), getChoice());
 
         if(authenticated) {
-            if(getId().equals("student")) {
+            if(getChoice().equals("student")) {
                 MainApplication.showStudentDashboard();
             }
-            else if(getId().equals("teacher")) {
+            else if(getChoice().equals("teacher")) {
                 MainApplication.showTeacherDashboard();
             }
-            else if(getId().equals("admin")) {
+            else if(getChoice().equals("admin")) {
                 MainApplication.showAdminDashboard();
             }
             else {

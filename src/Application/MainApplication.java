@@ -37,7 +37,7 @@ public class MainApplication extends Application {
     }
 
     public static void showTeacherDashboard() throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("FXMLfiles/TeacherDashboardView.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("/FXMLfiles/TeacherDashboardView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();  // Create a new stage, not the primary one
         Scene scene = new Scene(root, 900, 600);  // Set width=900, height=600
@@ -48,7 +48,7 @@ public class MainApplication extends Application {
 
 
     public static void showAdminDashboard() throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("FXMLfiles/AdminDashboardView.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("/FXMLfiles/AdminDashboardView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         Scene scene = new Scene(root, 900, 600);
@@ -58,7 +58,7 @@ public class MainApplication extends Application {
     }
 
     public static void showGuestView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("FXMLfiles/GuestView.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("/FXMLfiles/GuestView.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         Scene scene = new Scene(root, 900, 600);

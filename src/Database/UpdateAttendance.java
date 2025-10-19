@@ -14,7 +14,7 @@ public class UpdateAttendance {
         );
     }
 
-    public boolean updateAttendance(String userId, boolean status1, boolean status2, boolean status3) throws SQLException {
+    public void updateAttendance(String userId, boolean status1, boolean status2, boolean status3) throws SQLException {
         try (Connection connection = connection()) {
 
             PreparedStatement ps1 = connection.prepareStatement(
@@ -64,8 +64,6 @@ public class UpdateAttendance {
             res.setString(7, userId);
 
             res.executeQuery();
-
-            return true;
 
         }
         catch (SQLException e) {

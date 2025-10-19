@@ -12,39 +12,83 @@ public class UpdateTeacherDetails {
         );
     }
 
-    public void updateTeacherDetails(String userId, String name, String contact, String subject) throws SQLException {
+    // Utility to fetch all teacher details at once
+    private Teacher getTeacherDetails(String id) throws SQLException {
         try (Connection connection = connection()) {
-
-            PreparedStatement ps1 = connection.prepareStatement(
-                    "Select Teacher_Name, Subject_Taught, Contact_No from teacher where Teacher_ID = ?"
+            PreparedStatement ps = connection.prepareStatement(
+                    "SELECT Teacher_Name, Subject_Taught, Contact_No FROM teacher WHERE Teacher_ID = ?"
             );
-
-            ps1.setString(1, userId);
-            ResultSet rs1 = ps1.executeQuery();
-
-            String oname = "", osubject = "", oContact = "";
-
-            if (rs1.next()) {
-                oname = rs1.getString("Teacher_Name");
-                osubject = rs1.getString("Subject_Taught");
-                oContact = rs1.getString("Contact_No");
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Teacher(
+                        rs.getString("Teacher_Name"),
+                        rs.getString("Subject_Taught"),
+                        rs.getString("Contact_No")
+                );
             }
-
-
-            PreparedStatement res = connection.prepareStatement(
-                    "Update attendance set Teacher_Name = ?, Subject_Taught = ?, Contact_No = ? where userId = ? "
-            );
-
-            res.setString(1, name.isEmpty()? oname: name);
-            res.setString(1, contact.isEmpty()? oContact: contact);
-            res.setString(1, subject.isEmpty()? osubject: subject);
-
-            res.executeQuery();
-
+            return null;
         }
-        catch (SQLException e) {
+    }
+
+    public String getName(String id) {
+        try {
+            Teacher t = getTeacherDetails(id);
+            return (t != null) ? t.name : "";
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    public String getSubject(String id) {
+        try {
+            Teacher t = getTeacherDetails(id);
+            return (t != null) ? t.subject : "";
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getContact(String id) {
+        try {
+            Teacher t = getTeacherDetails(id);
+            return (t != null) ? t.contact : "";
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateTeacherDetails(String userId, String name, String contact, String subject) {
+        try {
+            Teacher old = getTeacherDetails(userId);
+            if (old == null) return;
+
+            String newName = name.isEmpty() ? old.name : name;
+            String newContact = contact.isEmpty() ? old.contact : contact;
+            String newSubject = subject.isEmpty() ? old.subject : subject;
+
+            try (Connection connection = connection()) {
+                PreparedStatement ps = connection.prepareStatement(
+                        "UPDATE attendance SET Teacher_Name = ?, Subject_Taught = ?, Contact_No = ? WHERE userId = ?"
+                );
+                ps.setString(1, newName);
+                ps.setString(2, newSubject);
+                ps.setString(3, newContact);
+                ps.setString(4, userId);
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // Inner class for holding details
+    private static class Teacher {
+        String name, subject, contact;
+        Teacher(String name, String subject, String contact) {
+            this.name = name;
+            this.subject = subject;
+            this.contact = contact;
+        }
     }
 }

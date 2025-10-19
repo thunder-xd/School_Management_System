@@ -26,7 +26,7 @@ public class ControlLogin {
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()) {
-                if(rs.getString("Password").equals(password)) return true;
+                if(rs.getString("Password_Hash").equals(password)) return true;
             }
 
         } catch (SQLException e) {
