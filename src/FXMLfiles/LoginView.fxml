@@ -3,20 +3,68 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 
-
-<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/17.0.1"
+<VBox fx:id="loginPane"
+      alignment="CENTER"
+      spacing="18"
+      xmlns="http://javafx.com/javafx/17.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ControllerFiles.LoginController"
       stylesheets="@../StylingFiles/login-style.css"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerFiles.LoginController">
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+      prefWidth="550"
+      prefHeight="650">
 
-    <Label text="School Management System Login" style="-fx-font-size: 16pt;"/>
-    <TextField fx:id="usernameField" promptText="Username" />
-    <PasswordField fx:id="passwordField" promptText="Password" />
+    <padding>
+        <Insets top="40" right="50" bottom="40" left="50"/>
+    </padding>
 
-    <ChoiceBox fx:id="roleChoiceBox" prefWidth="150"/>
+    <!-- Logo/Icon Section -->
+    <Label text="🎓" styleClass="icon-label"/>
 
-    <Button text="Login" onAction="#onLoginButtonClick" />
+    <!-- Title Section -->
+    <VBox alignment="CENTER" spacing="5">
+        <Label fx:id="title" text="School Management System"/>
+        <Label fx:id="subtitle" text="Sign in to continue"/>
+    </VBox>
 
-    <Label fx:id="messageLabel" style="-fx-text-fill: red;"/>
+    <!-- Separator -->
+    <Separator prefWidth="300"/>
+
+    <!-- Username Field -->
+    <VBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Username"/>
+        <TextField fx:id="usernameField" promptText="Enter your username"/>
+    </VBox>
+
+    <!-- Password Field -->
+    <VBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Password"/>
+        <PasswordField fx:id="passwordField" promptText="Enter your password"/>
+    </VBox>
+
+    <!-- Role Selection -->
+    <VBox spacing="8" alignment="CENTER_LEFT">
+        <Label text="Select Role"/>
+        <ChoiceBox fx:id="roleChoiceBox" prefWidth="350"/>
+    </VBox>
+
+    <!-- Login Button -->
+    <Button text="🔐 Login" onAction="#onLoginButtonClick"/>
+
+    <!-- Message Label -->
+    <Label fx:id="messageLabel"/>
+
+    <!-- Additional Options -->
+    <Separator prefWidth="300"/>
+
+    <HBox spacing="15" alignment="CENTER">
+        <Hyperlink text="Forgot Password?"/>
+        <Label text="|"/>
+        <Hyperlink text="Guest Login"/>
+    </HBox>
+
+    <!-- Footer -->
+    <Label text="© 2024 School Management System. All rights reserved."
+           styleClass="info-label"/>
 </VBox>

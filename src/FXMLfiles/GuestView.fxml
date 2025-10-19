@@ -1,13 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
 
 <VBox xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1"
       stylesheets="@../StylingFiles/guest-style.css"
-      fx:controller="ControllerFiles.GuestController" alignment="CENTER" spacing="10" style="-fx-padding: 20;">
-    <Label text="Welcome, Guest! Limited access." style="-fx-font-size: 14pt;"/>
-    <Button text="View Admission Info" onAction="#onViewAdmissionInfo"/>
-    <Button text="Logout" onAction="#onLogout"/>
+      fx:controller="ControllerFiles.GuestController"
+      alignment="CENTER"
+      spacing="15"
+      prefWidth="500"
+      prefHeight="520">
+    <padding><Insets top="30" right="40" bottom="30" left="40"/></padding>
+
+    <!-- Welcome Icon -->
+    <Label text="👋" styleClass="icon-label"/>
+
+    <!-- Welcome Section -->
+    <VBox alignment="CENTER" spacing="8">
+        <Label fx:id="welcomeLabel" text="Welcome, Guest!" styleClass="welcome-label"
+               style="-fx-text-fill: #667eea; -fx-font-size: 24pt; -fx-font-weight: bold;"/>
+        <Label text="Limited Access Mode" styleClass="subtitle-label"/>
+    </VBox>
+
+    <!-- Separator -->
+    <Separator prefWidth="350" style="-fx-padding: 5 0 5 0;"/>
+
+    <!-- Info Card with Features -->
+    <VBox alignment="CENTER" spacing="12" styleClass="info-card" style="-fx-max-width: 420;">
+        <Label text="📚 Available Features" styleClass="info-card-title"/>
+
+        <VBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10 20 10 20;">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="✓" styleClass="check-icon"/>
+                <Label text="View School Admission Information" styleClass="feature-label"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="✓" styleClass="check-icon"/>
+                <Label text="Browse Academic Programs" styleClass="feature-label"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="✓" styleClass="check-icon"/>
+                <Label text="Check Admission Requirements" styleClass="feature-label"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="✓" styleClass="check-icon"/>
+                <Label text="View Contact Information" styleClass="feature-label"/>
+            </HBox>
+        </VBox>
+    </VBox>
+
+    <!-- Separator -->
+    <Separator prefWidth="350" style="-fx-padding: 5 0 5 0;"/>
+
+    <!-- Action Buttons -->
+    <VBox alignment="CENTER" spacing="12">
+        <Button fx:id="viewAdmissionBtn"
+                text="📋 View Admission Info"
+                onAction="#onViewAdmissionInfo"
+                prefWidth="320"/>
+
+        <HBox spacing="12" alignment="CENTER">
+            <Button text="📞 Contact"
+                    styleClass="secondary-button"
+                    prefWidth="150"/>
+            <Button text="ℹ️ About"
+                    styleClass="tertiary-button"
+                    prefWidth="150"/>
+        </HBox>
+    </VBox>
+
+    <!-- Separator -->
+    <Separator prefWidth="350" style="-fx-padding: 8 0 5 0;"/>
+
+    <!-- Footer Section -->
+    <VBox alignment="CENTER" spacing="10">
+        <Label text="Need full access? Login as Student, Teacher, or Admin"
+               styleClass="footer-label"/>
+
+        <Button fx:id="logoutBtn"
+                text="🚪 Logout"
+                onAction="#onLogout"
+                prefWidth="200"/>
+    </VBox>
+
+    <!-- Status Label -->
+    <Label fx:id="statusLabel" text="" style="-fx-text-fill: #4facfe; -fx-font-weight: bold;"/>
 </VBox>

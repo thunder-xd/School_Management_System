@@ -1,20 +1,199 @@
-/* guest-style.css */
+/* ===== Enhanced Guest Style CSS ===== */
+
+/* Root background with vibrant gradient */
 .root {
-    -fx-background-color: #17191f;
+    -fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
 }
 
+/* Main VBox Container */
+VBox {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-background-radius: 25;
+    -fx-padding: 40;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 30, 0.5, 0, 10);
+    -fx-border-color: rgba(255, 255, 255, 0.6);
+    -fx-border-width: 2;
+    -fx-border-radius: 25;
+    -fx-max-width: 500;
+}
+
+/* ===== Labels ===== */
 .label {
-    -fx-text-fill: #cfd8dc;
+    -fx-text-fill: #2c3e50;
     -fx-font-size: 14pt;
+    -fx-font-weight: 500;
 }
 
+/* Welcome Title Label */
+#welcomeLabel {
+    -fx-text-fill: #667eea;
+    -fx-font-size: 24pt;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.3), 5, 0.5, 0, 2);
+}
+
+/* Subtitle Label */
+.subtitle-label {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 13pt;
+    -fx-font-weight: normal;
+}
+
+/* Icon Label */
+.icon-label {
+    -fx-font-size: 48pt;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.4), 10, 0.5, 0, 3);
+}
+
+/* Feature Labels */
+.feature-label {
+    -fx-text-fill: #34495e;
+    -fx-font-size: 12pt;
+    -fx-font-weight: 500;
+}
+
+/* Info Card Labels */
+.info-card-title {
+    -fx-text-fill: #667eea;
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+}
+
+/* ===== Buttons ===== */
 .button {
-    -fx-background-color: linear-gradient(to bottom, #4b6cb7, #182848);
+    -fx-background-color: linear-gradient(to right, #667eea, #764ba2);
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-font-size: 14pt;
-    -fx-padding: 12 28 12 28;
-    -fx-border-radius: 8px;
-    -fx-background-radius: 8px;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.7, 0, 2);
+    -fx-padding: 14 35 14 35;
+    -fx-border-radius: 15;
+    -fx-background-radius: 15;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.5), 10, 0.5, 0, 4);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #764ba2, #667eea);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.7), 15, 0.6, 0, 6);
+}
+
+.button:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+    -fx-effect: dropshadow(gaussian, rgba(102, 126, 234, 0.4), 5, 0.4, 0, 2);
+}
+
+/* Primary Button (View Admission Info) */
+#viewAdmissionBtn {
+    -fx-background-color: linear-gradient(to right, #4facfe, #00f2fe);
+    -fx-font-size: 15pt;
+    -fx-padding: 16 40 16 40;
+}
+
+#viewAdmissionBtn:hover {
+    -fx-background-color: linear-gradient(to right, #00f2fe, #4facfe);
+    -fx-effect: dropshadow(gaussian, rgba(79, 172, 254, 0.7), 18, 0.7, 0, 6);
+}
+
+/* Logout Button */
+#logoutBtn {
+    -fx-background-color: linear-gradient(to right, #f093fb, #f5576c);
+    -fx-padding: 12 30 12 30;
+    -fx-font-size: 13pt;
+}
+
+#logoutBtn:hover {
+    -fx-background-color: linear-gradient(to right, #f5576c, #f093fb);
+    -fx-effect: dropshadow(gaussian, rgba(245, 87, 108, 0.6), 15, 0.6, 0, 4);
+}
+
+/* Secondary Action Buttons */
+.secondary-button {
+    -fx-background-color: linear-gradient(to right, #a8edea, #fed6e3);
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 12pt;
+    -fx-padding: 12 25 12 25;
+}
+
+.secondary-button:hover {
+    -fx-background-color: linear-gradient(to right, #fed6e3, #a8edea);
+}
+
+.tertiary-button {
+    -fx-background-color: linear-gradient(to right, #ffecd2, #fcb69f);
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 12pt;
+    -fx-padding: 12 25 12 25;
+}
+
+.tertiary-button:hover {
+    -fx-background-color: linear-gradient(to right, #fcb69f, #ffecd2);
+}
+
+/* ===== Info Card Styling ===== */
+.info-card {
+    -fx-background-color: rgba(79, 172, 254, 0.1);
+    -fx-background-radius: 15;
+    -fx-padding: 25;
+    -fx-border-color: rgba(79, 172, 254, 0.3);
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+}
+
+/* Feature Box */
+.feature-box {
+    -fx-background-color: rgba(102, 126, 234, 0.08);
+    -fx-background-radius: 12;
+    -fx-padding: 15;
+    -fx-border-color: rgba(102, 126, 234, 0.2);
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+}
+
+/* ===== Separator ===== */
+.separator {
+    -fx-background-color: rgba(149, 165, 166, 0.3);
+}
+
+.separator .line {
+    -fx-background-color: rgba(149, 165, 166, 0.3);
+    -fx-border-color: transparent;
+}
+
+/* ===== Check Mark Icon ===== */
+.check-icon {
+    -fx-text-fill: #4facfe;
+    -fx-font-size: 16pt;
+    -fx-font-weight: bold;
+}
+
+/* ===== Footer Text ===== */
+.footer-label {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 11pt;
+}
+
+/* ===== Status Label ===== */
+#statusLabel {
+    -fx-text-fill: #4facfe;
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+}
+
+/* ===== Animations ===== */
+.button {
+    -fx-transition: all 0.3s ease;
+}
+
+/* ===== Tooltip Styling ===== */
+.tooltip {
+    -fx-background-color: rgba(0, 0, 0, 0.85);
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-font-size: 11pt;
+    -fx-padding: 8 12 8 12;
 }
